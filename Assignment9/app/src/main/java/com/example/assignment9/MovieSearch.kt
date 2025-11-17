@@ -79,7 +79,6 @@ fun MovieSearchScreen(navController: NavController, movieViewModel: MovieViewMod
             }
         }
 
-        // Display search results
         items(searchResults) { movie ->
             MovieSearchItemCard(movie = movie, onMovieClick = { imdbId ->
                 navController.navigate("movie_details/${imdbId}")
@@ -96,7 +95,7 @@ fun MovieSearchItemCard(movie: MovieSearchItem, onMovieClick: (String) -> Unit) 
             .padding(vertical = 4.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         shape = RoundedCornerShape(8.dp),
-        onClick = { movie.imdbID?.let {imdbId -> onMovieClick(imdbId)} } // Click to show details
+        onClick = { movie.imdbID?.let {imdbId -> onMovieClick(imdbId)} }
     ) {
         Row(
             modifier = Modifier
